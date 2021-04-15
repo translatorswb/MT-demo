@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  demo:
+    build: .
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+    restart: unless-stopped
+    ports:
+      - 8009:8000
+    environment:
+      - MT_API_URL=http://moisil.translatorswb.org/api/v1/translate/
+      - PYTHONPATH=/app/
+      - API_TOKEN=vGWZfZ7Pf6rB7NdQeSkhFQXwJq3eXfjgJMIyXXxozIc
+      - MAX_REQUEST_LENGTH=5000
+
+
