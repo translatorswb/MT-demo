@@ -21,8 +21,6 @@ def get_language_info():
     api_languages = {}
     api_models = {}
 
-    print(translate_url)
-
     try:
         r = httpx.get(translate_url)
     except httpx.HTTPError as exc:
@@ -49,7 +47,6 @@ def get_language_info():
 @app.get("/")
 def form_get(request: Request):
     api_languages, api_models = get_language_info()
-    print(api_models)
 
     if INIT_SRC and INIT_SRC in api_models and INIT_TGT and INIT_TGT in api_models[INIT_SRC]:
         src_select = INIT_SRC
