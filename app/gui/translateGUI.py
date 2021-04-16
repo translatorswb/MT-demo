@@ -59,7 +59,7 @@ def form_get(request: Request):
         src_select = ''
         tgt_select = ''
 
-    print("Select: %s-%s"%(src_select,tgt_select))
+    #print("Select: %s-%s"%(src_select,tgt_select))
 
     return templates.TemplateResponse('translate2.html', context={'request': request, 'api_languages':api_languages, 'api_models':api_models, 'src':src_select, 'tgt':tgt_select, 'source': INIT_MESSAGE, 'text1': '', 'text2': '', 'maxlength':MAX_REQUEST_LENGTH})
 
